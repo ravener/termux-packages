@@ -10,6 +10,7 @@ TERMUX_PKG_BUILD_IN_SRC=true
 
 termux_step_host_build() {
   termux_setup_cmake
+  export PATH="$PATH:$TERMUX_PKG_HOSTBUILD_DIR/build/luvi/src/deps/luv"
   cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Release -DWithSharedLibluv=OFF -DWithOpenSSL=ON -DWithSharedOpenSSL=OFF -DWithOpenSSLASM=ON -DWithPCRE=ON -DWithLPEG=ON -DWithSharedPCRE=OFF -DCMAKE_C_COMPILER="${CC}" -DCMAKE_ASM_COMPILER="${CC}" -DCMAKE_CXX_COMPILER="${CXX}"
   cmake --build build -j $TERMUX_MAKE_PROCESSES
 }
