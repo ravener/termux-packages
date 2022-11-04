@@ -20,7 +20,7 @@ termux_step_make_install() {
 	cp -R . $MICRO_SRC
 
 	cd $MICRO_SRC
-	make build-quick
+	make build
 	mv micro $TERMUX_PREFIX/bin/micro
 }
 
